@@ -2,16 +2,16 @@
 //PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book
 //Recipe Interface
-INGREDENT CreateIngredent(char* ingredentName, float ingredentAmount, char* ingredentUnit)
+INGREDENT CreateIngredent(char* ingredentNameInput, float ingredentAmountInput, char* ingredentUnitInput)
 {
 	INGREDENT i;
-	strncpy(i.ingrdentName, ingredentName, MAXSTRINGSIZE);
-	strncpy(i.ingredentUnit, ingredentUnit, MAXSTRINGSIZE);
-	i.ingredentAmount = ingredentAmount;
+	strncpy(i.ingrdentName, ingredentNameInput, MAXSTRINGSIZE);
+	strncpy(i.ingredentUnit, ingredentUnitInput, MAXSTRINGSIZE);
+	i.ingredentAmount = ingredentAmountInput;
 	return i;
 }
 
 void printIngredent(INGREDENT i)
 {
-	printf("%s , %f , %s", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
+	fprintf(stdout, "%s , %f , %s", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
 }

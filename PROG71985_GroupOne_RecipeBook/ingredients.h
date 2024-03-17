@@ -8,9 +8,9 @@
 //ingredients inplimentation
 typedef struct ingredents {
 
-	char* ingrdentName;
+	char ingrdentName[MAXSTRINGSIZE];
 	float ingredentAmount;
-	char* ingredentUnit;
+	char ingredentUnit[MAXSTRINGSIZE];
 
 
 }INGREDENT, PINGREDENT;

@@ -1,6 +1,6 @@
 //PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book with the following features
-//add a new recipe 
+//1. add a new recipe 
 //2. delete an existing recipe 
 //3. update an existing recipe
 //4. display single recipe 
