@@ -15,16 +15,5 @@ typedef struct ingredents {
 
 }INGREDENT, PINGREDENT;
 
-INGREDENT CreateIngredent(char* ingredentName, float ingredentAmount, char* ingredentUnit)
-{
-	INGREDENT i; 
-	strncpy(i.ingrdentName, ingredentName, MAXSTRINGSIZE);
-	strncpy(i.ingredentUnit, ingredentUnit, MAXSTRINGSIZE);
-	i.ingredentAmount = ingredentAmount;
-	return i;
-}
-
-void printIngredent(INGREDENT i)
-{
-	printf("%s , %f , %s", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
-}
+INGREDENT CreateIngredent(char* ingredentName, float ingredentAmount, char* ingredentUnit);
+void printIngredent(INGREDENT i);
