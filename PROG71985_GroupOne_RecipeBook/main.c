@@ -11,10 +11,31 @@
 //9. save accumulated data to disk
 //10. load accumulated data from disk
 #include<stdio.h>
+#include"Recipe.h"
+#include"ingredients.h"
+#include"listofingredents.h"
+#include"list.h"
+#include"menu.h"
+#include"User_Input.h"
 int main()
-{
-
-
-
+{	
+	int menucondition = 0;
+	PINGRDENTLISTNODE menuingredentlist = { 0 };
+	PLISTNODE menurecipelist = { 0 };
+	while (menucondition == 0)
+	{
+		char menu_choice = PrintOptions();
+		switch (menu_choice)
+		{
+		case 'a':
+			menuingredentlist =  Createanewingredent(menuingredentlist);
+			menurecipelist = Createanewrecipe(&menuingredentlist, menurecipelist);
+			Display(menurecipelist);
+			break;
+		default:
+			printf("please enter a valid choice\n");
+			break;
+		}
+	}
 	return 0;
 }

@@ -5,15 +5,15 @@
 //PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book
 // list interface
-typedef struct list {
+typedef struct listnode {
 	RECIPE recipe; 
 	struct listnode* next;
 }LISTNODE, *PLISTNODE;
 
-void Add(PLISTNODE*, RECIPE r);
+void Add(PLISTNODE* list, RECIPE r);
 
-void Remove(PLISTNODE*, RECIPE r);
+void Remove(PLISTNODE* list, RECIPE r);
 
-void Display(PLISTNODE, RECIPE r);
+void Display(PLISTNODE list);
 
-void Dispose(PLISTNODE*, RECIPE r);
+void Dispose(PLISTNODE* list);

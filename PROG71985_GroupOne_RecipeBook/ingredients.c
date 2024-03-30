@@ -2,16 +2,46 @@
 //PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book
 //Recipe Interface
-INGREDENT CreateIngredent(char* ingredentNameInput, float ingredentAmountInput, char* ingredentUnitInput)
+INGREDENTS CreateIngredent(char* ingredentNameInput, float ingredentAmountInput, char* ingredentUnitInput)
 {
-	INGREDENT i;
+	INGREDENTS i = { 0 };
 	strncpy(i.ingrdentName, ingredentNameInput, MAXSTRINGSIZE);
 	strncpy(i.ingredentUnit, ingredentUnitInput, MAXSTRINGSIZE);
 	i.ingredentAmount = ingredentAmountInput;
 	return i;
 }
 
-void printIngredent(INGREDENT i)
+
+void printIngredent(INGREDENTS i)
 {
-	fprintf(stdout, "%s , %f , %s", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
+	fprintf(stdout, "%s , %f , %s\n", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
+}
+
+INGREDENTS CopyIngredent(INGREDENTS source)
+{
+	return CreateIngredent(source.ingrdentName, source.ingredentAmount, source.ingredentUnit);
+}
+
+bool compareIngredents(INGREDENTS lhs[MAXAMOUNTOFINGREDENTS], INGREDENTS rhs[MAXAMOUNTOFINGREDENTS])
+{
+	for (int i = 0; i < MAXAMOUNTOFINGREDENTS; i++)
+	{
+		if (compareIngredent(lhs[i], rhs[i]))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool compareIngredent(INGREDENTS lhs, INGREDENTS rhs)
+{
+	if ((strncmp(lhs.ingrdentName, rhs.ingrdentName, MAXSTRINGSIZE)) && (strncmp(lhs.ingredentUnit, rhs.ingredentUnit, MAXSTRINGSIZE)) && (lhs.ingredentAmount == rhs.ingredentAmount))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

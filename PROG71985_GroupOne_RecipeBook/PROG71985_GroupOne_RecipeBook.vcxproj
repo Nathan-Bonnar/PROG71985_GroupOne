@@ -129,13 +129,19 @@
   <ItemGroup>
     <ClCompile Include="ingredients.c" />
     <ClCompile Include="list.c" />
+    <ClCompile Include="listofingredents.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="menu.c" />
     <ClCompile Include="Recipe.c" />
+    <ClCompile Include="User_Input.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ingredients.h" />
     <ClInclude Include="list.h" />
+    <ClInclude Include="listofingredents.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="Recipe.h" />
+    <ClInclude Include="User_Input.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
