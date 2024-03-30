@@ -60,8 +60,8 @@ PINGRDENTLISTNODE Createanewingredent()
 			}
 			else if (menu_input == 'y' || menu_input == 'Y')
 			{
-				continue;
 				continue_check = 1;
+				continue;
 			}
 			else
 			{
