@@ -16,7 +16,7 @@ char PrintOptions()
 {
 	char output[MAXSIZE] = "Please choose an option: ";
 	printf("please enter the choice of the option you want to select\n");
-	printf("a.) Add a new Recipe\n");
+	printf("a.)Add a new Recipe\n");
 	printf("b.)Delete an exitsing Recipe\n");
 	printf("c.)Update an exitsing Recipe\n");
 	printf("d.)Display a single recipe\n");
@@ -44,16 +44,30 @@ PINGRDENTLISTNODE Createanewingredent()
 	char menu_input;
 	do
 	{
+		int continue_check = 0;
 		StringInput(output_name, buffer_ingredent);
 		StringInput(output_unit, buffer_unit);
 		buffer_amount = float_Number_input(output_amount);
 		temp_ingredent = CreateIngredent(buffer_ingredent, buffer_amount, buffer_unit);
 		Addingredent(&functioningredentslist, temp_ingredent);
-		menu_input =  Char_input(output_end);
-		if (menu_input == 'n')
+		do
 		{
-			ingredents_check = 1;
-		}
+			menu_input = Char_input(output_end);
+			if (menu_input == 'n' || menu_input == 'N')
+			{
+				ingredents_check = 1;
+				continue_check = 1;
+			}
+			else if (menu_input == 'y' || menu_input == 'Y')
+			{
+				continue;
+				continue_check = 1;
+			}
+			else
+			{
+				printf("please enter a valid input\n");
+			}
+		} while (continue_check == 0);
 	} while (ingredents_check == 0);
 	
 	//temp_recipe = CreateRecipe(&ingredentslist);
@@ -71,8 +85,22 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE f
 	RECIPE temp_recipe;
 	char title_output[MAXSIZE] = "What would you like the title of the recipe to be: ";
 	char title_input[MAXSIZE];
+	int difficulty_loop_check = 0;
 	char difficulty_output[MAXSIZE] = "Is the difficulty of this recipe Easy(0) , Medium(1) , or Hard(3): ";
-	int difficulty_choice = int_Number_input(difficulty_output);
+	int difficulty_choice;
+	do
+	{
+		difficulty_choice = int_Number_input(difficulty_output);
+		
+		if (difficulty_choice >= 3)
+		{
+			printf("please enter a valid choice\n");
+		}
+		else
+		{
+			difficulty_loop_check = 1;
+		}
+	} while (difficulty_loop_check == 0);
 	StringInput(title_output, title_input);
 	temp_recipe = CreateRecipe(functioningredentslist, title_input,difficulty_choice);
 	Add(&functionrecipelist, temp_recipe);

@@ -3,19 +3,28 @@
 float float_Number_input(char* outputstring)
 {
 	float number_input;
-	printf("%s", outputstring);
-	int number_check = scanf("%f", &number_input);
+	int numbervalid_check = 0;
+	do
+	{
+		printf("%s", outputstring);
+		int number_check = scanf("%f", &number_input);
+
+		if (number_check != 1)
+		{
+			printf("please enter a vaild input\n");
+			int checker = getchar() != '\n';
+		}
+		else if (number_input > MAXSIZE)
+		{
+			printf("please enter a valid input");
+			int checker = getchar() != '\n';
+		}
+		else
+		{
+			numbervalid_check++;
+		}
 	
-	if (number_check != 1)
-	{
-		printf("please enter a vaild input\n");
-		exit(EXIT_FAILURE);
-	}
-	if (number_input > MAXSIZE)
-	{
-		printf("please enter a valid input");
-		exit(EXIT_FAILURE);
-	}
+	} while (numbervalid_check == 0);
 	int checker = getchar() != '\n';
 	return number_input;
 

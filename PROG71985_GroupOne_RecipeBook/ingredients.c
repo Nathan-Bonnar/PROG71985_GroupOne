@@ -14,7 +14,8 @@ INGREDENTS CreateIngredent(char* ingredentNameInput, float ingredentAmountInput,
 
 void printIngredent(INGREDENTS i)
 {
-	fprintf(stdout, "%s , %f , %s\n", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
+	fprintf(stdout, "Ingredents:");
+	fprintf(stdout, "%s , %f , %s\n\n", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
 }
 
 INGREDENTS CopyIngredent(INGREDENTS source)
