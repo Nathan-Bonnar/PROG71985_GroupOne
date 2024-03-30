@@ -70,9 +70,9 @@ bool CompareIngredentlist(PINGRDENTLISTNODE list, PINGRDENTLISTNODE list2)
 }
 
 
-void Displayingredent(PINGRDENTLISTNODE* list)
+void Displayingredent(PINGRDENTLISTNODE ingredentlist)
 {
-	PINGRDENTLISTNODE current = *list;
+	PINGRDENTLISTNODE current = ingredentlist;
 	if (current == NULL)
 		return;
 

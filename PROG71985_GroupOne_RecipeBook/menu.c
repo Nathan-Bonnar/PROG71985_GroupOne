@@ -29,9 +29,10 @@ char PrintOptions()
 	return charanswer;
 }
 
-PINGRDENTLISTNODE Createanewingredent(PINGRDENTLISTNODE functioningredentslist)
+PINGRDENTLISTNODE Createanewingredent()
 {
 	int ingredents_check = 0;
+	PINGRDENTLISTNODE functioningredentslist = { 0 };
 	char output_name[MAXSIZE] = "Please enter an ingredents name: ";
 	char output_unit[MAXSIZE] = "What is the unit you would like to use for that ingredent: ";
 	char output_amount[MAXSIZE] = "How much of that ingredent is needed: ";
@@ -65,7 +66,7 @@ PINGRDENTLISTNODE Createanewingredent(PINGRDENTLISTNODE functioningredentslist)
 	return functioningredentslist;
 }
 
-PLISTNODE Createanewrecipe(PINGRDENTLISTNODE* functioningredentslist, PLISTNODE functionrecipelist)
+PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE functionrecipelist)
 {
 	RECIPE temp_recipe;
 	char title_output[MAXSIZE] = "What would you like the title of the recipe to be: ";

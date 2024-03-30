@@ -20,16 +20,17 @@
 int main()
 {	
 	int menucondition = 0;
-	PINGRDENTLISTNODE menuingredentlist = { 0 };
+
 	PLISTNODE menurecipelist = { 0 };
 	while (menucondition == 0)
 	{
+		PINGRDENTLISTNODE menuingredentlist;
 		char menu_choice = PrintOptions();
 		switch (menu_choice)
 		{
 		case 'a':
-			menuingredentlist =  Createanewingredent(menuingredentlist);
-			menurecipelist = Createanewrecipe(&menuingredentlist, menurecipelist);
+			menuingredentlist =  Createanewingredent();
+			menurecipelist = Createanewrecipe(menuingredentlist, menurecipelist);
 			Display(menurecipelist);
 			break;
 		default:

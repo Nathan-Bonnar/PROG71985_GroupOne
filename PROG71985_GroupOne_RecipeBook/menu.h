@@ -9,5 +9,6 @@
 #include"User_Input.h"
 char PrintOptions();
 
-PINGRDENTLISTNODE Createanewingredent(PINGRDENTLISTNODE functioningredentslist);
-PLISTNODE Createanewrecipe(PINGRDENTLISTNODE* functioningredentslist, PLISTNODE functionrecipelist);
+PINGRDENTLISTNODE Createanewingredent();
+
+PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE functionrecipelist);

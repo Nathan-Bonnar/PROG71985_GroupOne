@@ -19,6 +19,6 @@ bool CompareIngredentlist(PINGRDENTLISTNODE list, PINGRDENTLISTNODE list2);
 
 void Removeingredent(PINGRDENTLISTNODE* list, INGREDENTS ingredent);
 
-void Displayingredent(PINGRDENTLISTNODE* list);
+void Displayingredent(PINGRDENTLISTNODE list);
 
 void Disposeingredent(PINGRDENTLISTNODE* list);

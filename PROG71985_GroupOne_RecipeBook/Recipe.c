@@ -48,6 +48,7 @@ void PrintRecipe(RECIPE r)
 	{
 		printf("HARD\n");
 	}
+	
 	Displayingredent(r.ingredents);
 }
 
