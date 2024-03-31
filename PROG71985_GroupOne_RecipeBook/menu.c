@@ -23,6 +23,7 @@ char PrintOptions()
 	printf("e.)Display a range of recipes\n");
 	printf("f.)Display All appt recipes\n");
 	printf("g.)Search For a recipe\n");
+	printf("0.)Exit the program\n");
 	
 	char charanswer = Char_input(output);
 	
@@ -90,6 +91,7 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE f
 	int difficulty_choice;
 	do
 	{
+		//change difficulty to meal type (B, L, D, or snack)
 		difficulty_choice = int_Number_input(difficulty_output);
 		
 		if (difficulty_choice >= 3)

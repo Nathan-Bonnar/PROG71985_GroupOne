@@ -5,6 +5,7 @@
 //PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book
 //Recipe Interface
+// //Change difficulty to meal type
 typedef enum difficulty {EASY , MEDIUM , HARD}DIFFICULTY;
 typedef struct recipe {
 	

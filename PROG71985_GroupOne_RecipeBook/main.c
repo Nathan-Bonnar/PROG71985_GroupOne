@@ -11,6 +11,7 @@
 //9. save accumulated data to disk
 //10. load accumulated data from disk
 #include<stdio.h>
+#include<stdlib.h>
 #include"Recipe.h"
 #include"ingredients.h"
 #include"listofingredents.h"
@@ -28,10 +29,32 @@ int main()
 		char menu_choice = PrintOptions();
 		switch (menu_choice)
 		{
-		case 'a':
+		case 'a': //a.)Add a new Recipe
 			menuingredentlist =  Createanewingredent();
 			menurecipelist = Createanewrecipe(menuingredentlist, menurecipelist);
 			Display(menurecipelist);
+			break;
+		case 'b'://b.)Delete an exitsing Recipe
+
+			break;
+		case 'c'://c.)Update an exitsing Recipe
+
+			break;
+		case 'd'://d.)Display a single recipe
+
+			break;
+		case 'e'://e.)Display a range of recipes
+
+			break;
+		case 'f'://f.)Display All appt recipes
+
+			break;
+		case 'g'://g.)Search For a recipe
+
+			break;
+		case '0'://0.)To exit 
+			Dispose(menuingredentlist);
+			exit(1);
 			break;
 		default:
 			printf("please enter a valid choice\n\n");
