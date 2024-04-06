@@ -21,7 +21,7 @@ RECIPE CopyRecipe(RECIPE OriginalRecipe)
 
 bool CompareRecipe(RECIPE lhs, RECIPE rhs)
 {
-	if (!(CompareIngredentlist(lhs.ingredents, rhs.ingredents)))
+	if (!(CompareIngredentlist(&lhs.ingredents, rhs.ingredents)))
 	{
 		return false;
 	}
@@ -55,4 +55,18 @@ void PrintRecipe(RECIPE r)
 void DisposeRecipe(RECIPE r)
 {
 	Disposeingredent(r.ingredents);
+}
+
+
+
+bool findrecipewithtitle(RECIPE* testing, char* goal)
+{
+	if (strncmp(testing->Title, goal, MAXSTRINGSIZE) == 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

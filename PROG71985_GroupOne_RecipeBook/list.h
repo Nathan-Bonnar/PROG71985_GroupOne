@@ -12,8 +12,10 @@ typedef struct listnode {
 
 void Add(PLISTNODE* list, RECIPE r);
 
-void Remove(PLISTNODE* list, RECIPE r);
+bool Remove(PLISTNODE* list, RECIPE r);
 
 void Display(PLISTNODE list);
 
 void Dispose(PLISTNODE* list);
+
+bool FindRecipe(PLISTNODE* list, char* recipetitle, RECIPE* found);

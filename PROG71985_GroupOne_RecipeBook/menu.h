@@ -12,3 +12,5 @@ char PrintOptions();
 PINGRDENTLISTNODE Createanewingredent();
 
 PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE functionrecipelist);
+
+void DeleteArecipe(PLISTNODE* functionrecipelist);

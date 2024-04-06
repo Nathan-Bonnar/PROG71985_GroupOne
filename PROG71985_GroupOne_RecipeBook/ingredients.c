@@ -14,8 +14,7 @@ INGREDENTS CreateIngredent(char* ingredentNameInput, float ingredentAmountInput,
 
 void printIngredent(INGREDENTS i)
 {
-	fprintf(stdout, "Ingredents:");
-	fprintf(stdout, "%s , %f , %s\n\n", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
+	fprintf(stdout, "%s , %f , %s\n", i.ingrdentName, i.ingredentAmount, i.ingredentUnit);
 }
 
 INGREDENTS CopyIngredent(INGREDENTS source)
@@ -37,7 +36,7 @@ bool compareIngredents(INGREDENTS lhs[MAXAMOUNTOFINGREDENTS], INGREDENTS rhs[MAX
 
 bool compareIngredent(INGREDENTS lhs, INGREDENTS rhs)
 {
-	if ((strncmp(lhs.ingrdentName, rhs.ingrdentName, MAXSTRINGSIZE)) && (strncmp(lhs.ingredentUnit, rhs.ingredentUnit, MAXSTRINGSIZE)) && (lhs.ingredentAmount == rhs.ingredentAmount))
+	if ((strncmp(lhs.ingrdentName, rhs.ingrdentName, MAXSTRINGSIZE) == 0 && (strncmp(lhs.ingredentUnit, rhs.ingredentUnit, MAXSTRINGSIZE)) == 0 && (lhs.ingredentAmount == rhs.ingredentAmount)))
 	{
 		return true;
 	}

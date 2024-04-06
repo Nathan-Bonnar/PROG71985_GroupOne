@@ -21,8 +21,9 @@
 int main()
 {	
 	int menucondition = 0;
-
 	PLISTNODE menurecipelist = { 0 };
+	char testingstring[MAXSTRINGSIZE] = "Test";
+	RECIPE testfindrecipe;
 	while (menucondition == 0)
 	{
 		PINGRDENTLISTNODE menuingredentlist;
@@ -35,7 +36,7 @@ int main()
 			Display(menurecipelist);
 			break;
 		case 'b'://b.)Delete an exitsing Recipe
-
+			DeleteArecipe(&menurecipelist);
 			break;
 		case 'c'://c.)Update an exitsing Recipe
 
@@ -53,7 +54,7 @@ int main()
 
 			break;
 		case '0'://0.)To exit 
-			Dispose(menuingredentlist);
+			Dispose(&menuingredentlist);
 			exit(1);
 			break;
 		default:

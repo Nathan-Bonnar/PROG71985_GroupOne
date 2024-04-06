@@ -24,7 +24,7 @@ void Addingredent(PINGRDENTLISTNODE* list, INGREDENTS ingredent)
 
 }
 
-void Removeingredent( PINGRDENTLISTNODE* list, INGREDENTS ingredent)
+void Removeingredent(PINGRDENTLISTNODE* list, INGREDENTS ingredent)
 {
 	 PINGRDENTLISTNODE current = *list;
 	if (current != NULL && compareIngredent(current->ingredent, ingredent))
@@ -50,9 +50,9 @@ void Removeingredent( PINGRDENTLISTNODE* list, INGREDENTS ingredent)
 	}
 }
 
-bool CompareIngredentlist(PINGRDENTLISTNODE list, PINGRDENTLISTNODE list2)
+bool CompareIngredentlist(PINGRDENTLISTNODE* list, PINGRDENTLISTNODE list2)
 {
-	PINGRDENTLISTNODE current = list;
+	PINGRDENTLISTNODE current = *list;
 	PINGRDENTLISTNODE current2 = list2;
 	if (current == NULL || current2 == NULL)
 	{
@@ -66,7 +66,8 @@ bool CompareIngredentlist(PINGRDENTLISTNODE list, PINGRDENTLISTNODE list2)
 		}
 		current = current->next;
 		current2 = current2->next;
-	} while (current != NULL || current2 != NULL);
+	} while (current != NULL && current2 != NULL);
+	return false;
 }
 
 
@@ -75,7 +76,7 @@ void Displayingredent(PINGRDENTLISTNODE ingredentlist)
 	PINGRDENTLISTNODE current = ingredentlist;
 	if (current == NULL)
 		return;
-
+	fprintf(stdout, "Ingredents\n");
 	do
 	{
 		printIngredent(current->ingredent);
@@ -83,7 +84,7 @@ void Displayingredent(PINGRDENTLISTNODE ingredentlist)
 	} while (current != NULL);
 }
 
-void Disposeingredent( PINGRDENTLISTNODE* list)
+void Disposeingredent(PINGRDENTLISTNODE* list)
 {
 	 PINGRDENTLISTNODE current = *list;
 	while (current != NULL) {

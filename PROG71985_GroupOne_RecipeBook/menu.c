@@ -108,3 +108,28 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE f
 	Add(&functionrecipelist, temp_recipe);
 	return functionrecipelist;
 }
+
+
+
+
+void DeleteArecipe(PLISTNODE* functionrecipelist)
+{
+	PLISTNODE recipelist = *functionrecipelist;
+	RECIPE recipetodelete; 
+	char delete_choice[MAXSIZE];
+	char delete_output[MAXSIZE] = "What is the name of the recipe you would like to delete (Case matters): ";
+	StringInput(delete_output, delete_choice);
+	bool findrecipe_check = FindRecipe(functionrecipelist, delete_choice, &recipetodelete);
+	if (!(findrecipe_check))
+	{
+		fprintf(stderr, "couldnt find recipe\n");
+		return;
+	}
+	
+	bool removecheck = Remove(&recipelist, recipetodelete);
+	if (!(removecheck))
+	{
+		fprintf(stderr, "ERROR FREEING MEMORY\n");
+		exit(1);
+	}
+}

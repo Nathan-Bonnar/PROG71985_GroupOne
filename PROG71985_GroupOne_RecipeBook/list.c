@@ -22,14 +22,55 @@ else
 
 }
 
-void Remove(PLISTNODE* list, RECIPE r)
+bool CompareRecipelist  (PLISTNODE lhsrecipe, PLISTNODE rhsrecipe)
+{
+	PLISTNODE current1 = lhsrecipe;
+	PLISTNODE current2 = rhsrecipe;
+	if (current1 == NULL || current2 == NULL)
+	{
+		return false;
+	}
+	if (CompareRecipe(current1->recipe, current2->recipe))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+bool FindRecipe(PLISTNODE* list, char* recipetitle, RECIPE* found)
+{
+	PLISTNODE current = *list;
+	if (current == NULL)
+	{
+		return false;
+	}
+
+	do
+	{
+	if(findrecipewithtitle(current->recipe, recipetitle))
+	{
+		*found = current->recipe;
+		return true;
+	}
+	current = current->next;
+	} while (current != NULL);
+
+	return false;
+}
+
+
+bool Remove(PLISTNODE* list, RECIPE r)
 {
 	PLISTNODE current = *list;
 	if (current != NULL && CompareRecipe(current->recipe, r))
 	{
 		*list = current->next;
+		Disposeingredent(&current->recipe.ingredents);
 		free(current);
-		return;
+		return true;
 	}
 
 	PLISTNODE prev = NULL;
@@ -40,11 +81,13 @@ void Remove(PLISTNODE* list, RECIPE r)
 	}
 
 	if (current == NULL)
-		return;
+		return false;
 	else
 	{
 		prev->next = current->next;
+		Disposeingredent(&current->recipe.ingredents);
 		free(current);
+		return true;
 	}
 }
 void Display(PLISTNODE list)

@@ -26,3 +26,5 @@ bool CompareRecipe(RECIPE lhs, RECIPE rhs);
 void DisposeRecipe(RECIPE r);
 
 void PrintRecipe(RECIPE r);
+
+bool findrecipewithtitle(RECIPE testing, char* goal);
