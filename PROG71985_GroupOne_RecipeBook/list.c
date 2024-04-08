@@ -4,6 +4,7 @@
 //Make a recipe Book
 // list Implimentation
 //
+//Adds a recipe to a list
 void Add(PLISTNODE* list, RECIPE r)
 {
 
@@ -21,7 +22,7 @@ else
 }
 
 }
-
+//compares a two recipes
 bool CompareRecipelist  (PLISTNODE lhsrecipe, PLISTNODE rhsrecipe)
 {
 	PLISTNODE current1 = lhsrecipe;
@@ -39,7 +40,7 @@ bool CompareRecipelist  (PLISTNODE lhsrecipe, PLISTNODE rhsrecipe)
 		return false;
 	}
 }
-
+//This function finds a recipe by taking in the list of recipes, the name of the recipe that the user wants to find, and updates the address of a preexiting recipe
 bool FindRecipe(PLISTNODE* list, char* recipetitle, RECIPE* found)
 {
 	PLISTNODE current = *list;
@@ -61,7 +62,7 @@ bool FindRecipe(PLISTNODE* list, char* recipetitle, RECIPE* found)
 	return false;
 }
 
-
+//removes a recipe from a list of them
 bool Remove(PLISTNODE* list, RECIPE r)
 {
 	PLISTNODE current = *list;
@@ -90,6 +91,8 @@ bool Remove(PLISTNODE* list, RECIPE r)
 		return true;
 	}
 }
+
+//displays a list of recipes 
 void Display(PLISTNODE list)
 {
 	PLISTNODE current = list;
@@ -102,7 +105,7 @@ void Display(PLISTNODE list)
 		current = current->next;
 	} while (current != NULL);
 }
-
+//disposes all recipes 
 void Dispose(PLISTNODE* list) 
 {
 	PLISTNODE current = *list;
@@ -112,4 +115,87 @@ void Dispose(PLISTNODE* list)
 		current = current->next;
 		free(tmp);
 	}
+}
+
+bool loadRecipeFromdisk(PLISTNODE* r, char* filename)
+{
+	char newrecipebuffer[MAXSTRINGSIZE];
+	char recipetitlebuffer[MAXSTRINGSIZE];
+	char recipedifficultybuffer[MAXSTRINGSIZE];
+	int loopvariable = 0;
+	DIFFICULTY howhard;
+	FILE* fp = fopen(filename, "r");
+	if (fp == NULL)
+	{
+		fprintf(stderr, "ERROR WRITING TO FILE\n");
+		return false;
+	}	
+	else
+	{
+		fgets(newrecipebuffer, MAXSTRINGSIZE, fp);
+		newrecipebuffer[strcspn(newrecipebuffer, "\n")] = '\0';
+		if (strncmp(newrecipebuffer, "NEWRECIPE", 9)!= 0)
+		{
+			fprintf(stderr, "ERROR READING FILE");
+			exit(1);
+		}
+
+		while (loopvariable == 0)
+		{
+			PINGRDENTLISTNODE i = { 0 };
+			fgets(recipetitlebuffer, MAXSTRINGSIZE, fp);
+			recipetitlebuffer[strcspn(recipetitlebuffer, "\n")] = '\0';
+			if (strncmp(recipetitlebuffer,"ENDOFFILE",9) == 0)
+			{
+				return false;
+			}
+			fgets(recipedifficultybuffer, MAXSTRINGSIZE, fp);
+			recipedifficultybuffer[strcspn(recipedifficultybuffer, "\n")] = '\0';
+			if (strncmp(recipedifficultybuffer, "EASY", 4))
+			{
+				howhard = EASY;
+			}
+			else if (strncmp(recipedifficultybuffer, "HARD", 4))
+			{
+				howhard = HARD;
+			}
+			else if (strncmp(recipedifficultybuffer, "MEDIUM", 6))
+			{
+				howhard = MEDIUM;
+			}
+
+			bool ingredentstest = loadingredentsfromdisk(&i, fp);
+
+			RECIPE recipe = CreateRecipe(i, recipetitlebuffer, howhard);
+
+			Add(r, recipe);
+			
+			if (ingredentstest == false)
+			{
+				return true;
+			}
+		}
+	}
+
+
+}
+
+bool saverecipestodisk(PLISTNODE r, char * filename)
+{
+	FILE* fp = fopen(filename, "w");
+	if (fp == NULL)
+	{
+		fprintf(stderr, "ERROR WRITING TO FILE\n");
+		return false;
+	}
+
+	PLISTNODE current = r;
+	while (current != NULL)
+	{
+		fprintf(fp, "NEWRECIPE\n");
+		SaveRecipetodisk(fp, current->recipe);
+		current = current->next;
+	}
+	fprintf(fp, "ENDOFFILE\n");
+	return true;
 }

@@ -21,6 +21,8 @@ INGREDENTS CreateIngredent(char* ingredentName, float ingredentAmount, char* ing
 
 void printIngredents(INGREDENTS i[MAXAMOUNTOFINGREDENTS]);
 
+bool saveingredenttodisk(INGREDENTS i, FILE* fp);
+
 void printIngredent(INGREDENTS i);
 
 INGREDENTS CopyIngredent(INGREDENTS source);

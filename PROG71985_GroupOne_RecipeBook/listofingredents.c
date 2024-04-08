@@ -86,11 +86,52 @@ void Displayingredent(PINGRDENTLISTNODE ingredentlist)
 
 void Disposeingredent(PINGRDENTLISTNODE* list)
 {
-	 PINGRDENTLISTNODE current = *list;
+	PINGRDENTLISTNODE current = *list;
 	while (current != NULL) {
 		 PINGRDENTLISTNODE tmp = current;
 		
 		current = current->next;
 		free(tmp);
+	}
+}
+
+
+void saveingredentstodisk(PINGRDENTLISTNODE list, FILE* fp)
+{
+	PINGRDENTLISTNODE current = list;
+	while (current != NULL)
+	{
+		saveingredenttodisk(current->ingredent, fp);
+		current = current->next;
+	}
+}
+
+
+bool loadingredentsfromdisk(PINGRDENTLISTNODE * i,  FILE* fp)
+{
+	char Recipetitlebuffer[MAXSTRINGSIZE];
+	char Recipeunitbuffer[MAXSTRINGSIZE];
+	float Recipeamountbuffer;
+	int ingredentsloop = 0;
+	while (ingredentsloop == 0)
+	{
+		fgets(Recipetitlebuffer, MAXSTRINGSIZE, fp);
+		Recipetitlebuffer[strcspn(Recipetitlebuffer, "\n")] = '\0';
+		if (strncmp(Recipetitlebuffer, "NEWRECIPE", 9) == 0)
+		{
+			return true;
+		}
+		else if (strncmp(Recipetitlebuffer, "ENDOFFILE", 9) == 0)
+		{
+			return false;
+		}
+		fgets(Recipeunitbuffer, MAXSTRINGSIZE, fp);
+		Recipeunitbuffer[strcspn(Recipeunitbuffer, "\n")] = '\0';
+		int number_check = fscanf(fp, "%f\n", &Recipeamountbuffer);
+		
+		INGREDENTS ingredent =  CreateIngredent(Recipetitlebuffer, Recipeamountbuffer, Recipeunitbuffer);
+		
+		Addingredent(i, ingredent);
+
 	}
 }

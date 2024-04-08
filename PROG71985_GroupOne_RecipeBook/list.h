@@ -14,8 +14,13 @@ void Add(PLISTNODE* list, RECIPE r);
 
 bool Remove(PLISTNODE* list, RECIPE r);
 
+bool saverecipestodisk(PLISTNODE r, char* filename);
+
 void Display(PLISTNODE list);
 
 void Dispose(PLISTNODE* list);
 
 bool FindRecipe(PLISTNODE* list, char* recipetitle, RECIPE* found);
+
+
+bool loadRecipeFromdisk(PLISTNODE* r, char* filename);

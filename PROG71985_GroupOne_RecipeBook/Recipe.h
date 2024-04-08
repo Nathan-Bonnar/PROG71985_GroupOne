@@ -17,7 +17,7 @@ typedef struct recipe {
 }RECIPE, *PRECIPE;
 
 
-RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char* userstring, int diffiuculy);
+RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char* userstring, DIFFICULTY diffiuculy);
 
 RECIPE CopyRecipe(RECIPE OriginalRecipe);
 
@@ -28,3 +28,5 @@ void DisposeRecipe(RECIPE r);
 void PrintRecipe(RECIPE r);
 
 bool findrecipewithtitle(RECIPE testing, char* goal);
+
+void SaveRecipetodisk(FILE* fp, RECIPE r);

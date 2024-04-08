@@ -22,3 +22,7 @@ void Removeingredent(PINGRDENTLISTNODE* list, INGREDENTS ingredent);
 void Displayingredent(PINGRDENTLISTNODE list);
 
 void Disposeingredent(PINGRDENTLISTNODE* list);
+
+void saveingredentstodisk(PINGRDENTLISTNODE list, FILE* fp);
+
+bool loadingredentsfromdisk(PINGRDENTLISTNODE* i, FILE* fp);

@@ -45,3 +45,17 @@ bool compareIngredent(INGREDENTS lhs, INGREDENTS rhs)
 		return false;
 	}
 }
+
+bool saveingredenttodisk(INGREDENTS i,FILE* fp)
+{
+	fprintf(fp, "%s\n", i.ingrdentName);
+	fprintf(fp, "%s\n", i.ingredentUnit);
+	fprintf(fp, "%f\n", i.ingredentAmount);
+	return true;
+}
+
+//INGREDENTS LoadIngredentsFromdisk(FILE* fp)
+//{
+//	char namebuffer[MAXSTRINGSIZE] = { 0 };
+//	fgets(namebuffer, MAXSTRINGSIZE, fp);
+//}

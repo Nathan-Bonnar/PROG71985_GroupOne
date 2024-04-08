@@ -23,7 +23,7 @@ char PrintOptions()
 	printf("e.)Display a range of recipes\n");
 	printf("f.)Display All appt recipes\n");
 	printf("g.)Search For a recipe\n");
-	printf("0.)Exit the program\n");
+	printf("h.)Exit the program\n");
 	
 	char charanswer = Char_input(output);
 	
@@ -87,14 +87,14 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE f
 	char title_output[MAXSIZE] = "What would you like the title of the recipe to be: ";
 	char title_input[MAXSIZE];
 	int difficulty_loop_check = 0;
-	char difficulty_output[MAXSIZE] = "Is the difficulty of this recipe Easy(0) , Medium(1) , or Hard(3): ";
+	char difficulty_output[MAXSIZE] = "Is the difficulty of this recipe Easy(1) , Medium(2) , or Hard(3): ";
 	int difficulty_choice;
 	do
 	{
 		//change difficulty to meal type (B, L, D, or snack)
 		difficulty_choice = int_Number_input(difficulty_output);
 		
-		if (difficulty_choice >= 3)
+		if (difficulty_choice > 3 || difficulty_choice <= 0)
 		{
 			printf("please enter a valid choice\n");
 		}
@@ -103,6 +103,7 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE f
 			difficulty_loop_check = 1;
 		}
 	} while (difficulty_loop_check == 0);
+	difficulty_choice = difficulty_choice - 1;
 	StringInput(title_output, title_input);
 	temp_recipe = CreateRecipe(functioningredentslist, title_input,difficulty_choice);
 	Add(&functionrecipelist, temp_recipe);

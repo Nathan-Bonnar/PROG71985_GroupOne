@@ -20,10 +20,13 @@
 #include"User_Input.h"
 int main()
 {	
+	char Recipefilename[MAXSTRINGSIZE] = "Recipes.dat";
 	int menucondition = 0;
 	PLISTNODE menurecipelist = { 0 };
 	char testingstring[MAXSTRINGSIZE] = "Test";
 	RECIPE testfindrecipe;
+	loadRecipeFromdisk(&menurecipelist, Recipefilename);
+	
 	while (menucondition == 0)
 	{
 		PINGRDENTLISTNODE menuingredentlist;
@@ -53,14 +56,16 @@ int main()
 		case 'g'://g.)Search For a recipe
 
 			break;
-		case '0'://0.)To exit 
-			Dispose(&menuingredentlist);
-			exit(1);
+		case 'h'://0.)To exit 
+			saverecipestodisk(menurecipelist, Recipefilename);
+			Dispose(&menurecipelist);
+			menucondition = 1;
 			break;
 		default:
 			printf("please enter a valid choice\n\n");
 			break;
 		}
 	}
+	
 	return 0;
 }

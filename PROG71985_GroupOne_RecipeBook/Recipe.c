@@ -4,7 +4,7 @@
 #include"Recipe.h"
 #pragma warning(disable : 4996)
 #define MAXSTRINGSIZE 100
-RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char * userstring, int diffiuculy)
+RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char * userstring, DIFFICULTY diffiuculy)
 {
 	RECIPE recipe = { 0 };
 	recipe.ingredents = ingredentslist;
@@ -54,7 +54,7 @@ void PrintRecipe(RECIPE r)
 
 void DisposeRecipe(RECIPE r)
 {
-	Disposeingredent(r.ingredents);
+	Disposeingredent(&r.ingredents);
 }
 
 
@@ -69,4 +69,25 @@ bool findrecipewithtitle(RECIPE* testing, char* goal)
 	{
 		return false;
 	}
+}
+
+void SaveRecipetodisk(FILE* fp, RECIPE r)
+{
+
+	fprintf(fp, "%s\n", r.Title);
+	if (r.difficulty == EASY)
+	{
+		fprintf(fp, "EASY\n");
+	}
+	else if (r.difficulty == MEDIUM)
+	{
+		fprintf(fp, "MEDIUM\n");
+	}
+	else if (r.difficulty == HARD)
+	{
+		fprintf(fp, "HARD\n");
+	}
+
+	saveingredentstodisk(r.ingredents, fp);
+
 }
