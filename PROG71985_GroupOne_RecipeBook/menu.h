@@ -14,3 +14,5 @@ PINGRDENTLISTNODE Createanewingredent();
 PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE functionrecipelist);
 
 void DeleteArecipe(PLISTNODE* functionrecipelist);
+
+void DisplayARecipe(PLISTNODE recipelist);

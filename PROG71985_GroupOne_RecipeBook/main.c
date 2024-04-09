@@ -45,7 +45,7 @@ int main()
 
 			break;
 		case 'd'://d.)Display a single recipe
-
+			DisplayARecipe(&menurecipelist);
 			break;
 		case 'e'://e.)Display a range of recipes
 

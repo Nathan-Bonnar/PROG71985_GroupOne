@@ -134,3 +134,21 @@ void DeleteArecipe(PLISTNODE* functionrecipelist)
 		exit(1);
 	}
 }
+
+void DisplayARecipe(PLISTNODE recipelist)
+{
+	PLISTNODE r = recipelist;
+	RECIPE recipetodisplay;
+	char displaychoice[MAXSTRINGSIZE];
+	char display_output[MAXSTRINGSIZE] = "What is the title of recipe you would like to display(case matters): ";
+	StringInput(display_output, displaychoice);
+	bool findrecipe_check = FindRecipe(r, displaychoice, &recipetodisplay);
+	if (!(findrecipe_check))
+	{
+		fprintf(stderr, "couldnt find recipe\n");
+		return;
+	}
+	
+	PrintRecipe(recipetodisplay);
+	return;
+}
