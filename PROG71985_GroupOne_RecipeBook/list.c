@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"list.h"
 #include"Recipe.h"
+#include "stdlib.h"
 //PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book
 // list Implimentation
@@ -225,4 +226,23 @@ void RecipeRangeDisplayer(int starting, int ending, PLISTNODE recipelist) {
 
 
 	return; 
+}
+
+void RandomRecipeDisplayer(PLISTNODE recipelist) {
+
+	PLISTNODE current = recipelist;
+	RECIPE temprecipe = { 0 };
+	int RecipeNumber = rand();
+	if (current == NULL)
+		return;
+
+	do {
+		temprecipe = current->recipe;
+		PrintRecipe(temprecipe);
+		current = current->next;
+	} while (current != NULL);
+
+
+
+	return;
 }

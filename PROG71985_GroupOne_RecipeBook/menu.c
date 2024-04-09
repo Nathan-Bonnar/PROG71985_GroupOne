@@ -23,6 +23,7 @@ char PrintOptions()
 	printf("e.)Display a range of recipes\n");
 	printf("f.)Display All appt recipes\n");
 	printf("g.)Search For a recipe\n");
+	printf("i.)Search For a random recipe\n");
 	printf("h.)Exit the program\n");
 	
 	char charanswer = Char_input(output);

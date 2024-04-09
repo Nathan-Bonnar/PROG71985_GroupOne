@@ -60,6 +60,9 @@ int main()
 			Dispose(&menurecipelist);
 			menucondition = 1;
 			break;
+		case 'i':
+			RandomRecipeDisplayer(menurecipelist);
+			break;
 		default:
 			printf("please enter a valid choice\n\n");
 			break;
