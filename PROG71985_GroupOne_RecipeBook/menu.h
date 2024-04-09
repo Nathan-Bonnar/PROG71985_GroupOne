@@ -16,3 +16,5 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE f
 void DeleteArecipe(PLISTNODE* functionrecipelist);
 
 void DisplayARecipe(PLISTNODE recipelist);
+
+void searchforarecipe(PLISTNODE recipelist);

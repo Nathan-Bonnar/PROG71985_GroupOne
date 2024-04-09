@@ -54,7 +54,7 @@ int main()
 
 			break;
 		case 'g'://g.)Search For a recipe
-
+			searchforarecipe(&menurecipelist);
 			break;
 		case 'h'://0.)To exit 
 			saverecipestodisk(menurecipelist, Recipefilename);
