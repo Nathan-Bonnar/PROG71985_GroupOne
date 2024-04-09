@@ -5,7 +5,7 @@
 //3. update an existing recipe
 //4. display single recipe 
 //5. display range recipe
-//6. display all appt recipe
+//6. display all recipe
 //7. search for recipe
 //8. friendly / easy to use UI(or menu system)
 //9. save accumulated data to disk
@@ -50,7 +50,7 @@ int main()
 			DisplayRangeOfRecipe(menurecipelist);
 			break;
 		case 'f'://f.)Display All appt recipes
-
+			Display(menurecipelist);
 			break;
 		case 'g'://g.)Search For a recipe
 			searchforarecipe(&menurecipelist);
