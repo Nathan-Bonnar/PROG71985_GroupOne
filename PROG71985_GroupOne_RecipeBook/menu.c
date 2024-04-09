@@ -86,26 +86,26 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE f
 	RECIPE temp_recipe;
 	char title_output[MAXSIZE] = "What would you like the title of the recipe to be: ";
 	char title_input[MAXSIZE];
-	int difficulty_loop_check = 0;
-	char difficulty_output[MAXSIZE] = "Is the difficulty of this recipe Easy(1) , Medium(2) , or Hard(3): ";
-	int difficulty_choice;
+	int mealtype_loop_check = 0;
+	char mealtype_output[MAXSIZE] = "Is the meal for breakfast(1), Lunch(2), or dinner(3): ";
+	int mealtype_choice;
 	do
 	{
 		//change difficulty to meal type (B, L, D, or snack)
-		difficulty_choice = int_Number_input(difficulty_output);
+		mealtype_choice = int_Number_input(mealtype_output);
 		
-		if (difficulty_choice > 3 || difficulty_choice <= 0)
+		if (mealtype_choice > 3 || mealtype_choice <= 0)
 		{
 			printf("please enter a valid choice\n");
 		}
 		else
 		{
-			difficulty_loop_check = 1;
+			mealtype_loop_check = 1;
 		}
-	} while (difficulty_loop_check == 0);
-	difficulty_choice = difficulty_choice - 1;
+	} while (mealtype_loop_check == 0);
+	mealtype_choice = mealtype_choice -1;
 	StringInput(title_output, title_input);
-	temp_recipe = CreateRecipe(functioningredentslist, title_input,difficulty_choice);
+	temp_recipe = CreateRecipe(functioningredentslist, title_input,mealtype_choice);
 	Add(&functionrecipelist, temp_recipe);
 	return functionrecipelist;
 }

@@ -6,18 +6,18 @@
 //Make a recipe Book
 //Recipe Interface
 // //Change difficulty to meal type
-typedef enum difficulty {EASY , MEDIUM , HARD}DIFFICULTY;
+typedef enum mealtype{BREAKFAST, LUNCH, DINNER}MEALTYPE;
 typedef struct recipe {
 	
 	struct PINGRDENTLISTNODE* ingredents;
 	//STEPS steps;
 	char Title[MAXSTRINGSIZE];
-	DIFFICULTY difficulty;
+	MEALTYPE whatmeal;
 
 }RECIPE, *PRECIPE;
 
 
-RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char* userstring, DIFFICULTY diffiuculy);
+RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char* userstring, MEALTYPE mealtype);
 
 RECIPE CopyRecipe(RECIPE OriginalRecipe);
 
@@ -27,6 +27,6 @@ void DisposeRecipe(RECIPE r);
 
 void PrintRecipe(RECIPE r);
 
-bool findrecipewithtitle(RECIPE testing, char* goal);
+bool findrecipewithtitle(RECIPE* testing, char* goal);
 
 void SaveRecipetodisk(FILE* fp, RECIPE r);

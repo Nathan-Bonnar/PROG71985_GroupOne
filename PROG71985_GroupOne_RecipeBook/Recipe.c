@@ -4,18 +4,18 @@
 #include"Recipe.h"
 #pragma warning(disable : 4996)
 #define MAXSTRINGSIZE 100
-RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char * userstring, DIFFICULTY diffiuculy)
+RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char * userstring, MEALTYPE mtype)
 {
 	RECIPE recipe = { 0 };
 	recipe.ingredents = ingredentslist;
 	strncpy(recipe.Title, userstring, MAXSTRINGSIZE);
-	recipe.difficulty = diffiuculy;
+	recipe.whatmeal = mtype;
 	return recipe;
 }
 
 RECIPE CopyRecipe(RECIPE OriginalRecipe)
 {
-	RECIPE recipe = CreateRecipe(OriginalRecipe.ingredents, OriginalRecipe.Title, OriginalRecipe.difficulty);
+	RECIPE recipe = CreateRecipe(OriginalRecipe.ingredents, OriginalRecipe.Title, OriginalRecipe.whatmeal);
 	return recipe;
 }
 
@@ -35,18 +35,18 @@ bool CompareRecipe(RECIPE lhs, RECIPE rhs)
 void PrintRecipe(RECIPE r)
 {
 	printf("Title:%s\n", r.Title);
-	printf("Difficulty:");
-	if (r.difficulty == EASY)
+	printf("MEAL TYPE:");
+	if (r.whatmeal == BREAKFAST)
 	{
-		printf("EASY\n");
+		printf("BREAKFAST\n");
 	}
-	else if (r.difficulty == MEDIUM)
+	else if (r.whatmeal == LUNCH)
 	{
-		printf("MEDIUM\n");
+		printf("LUNCH\n");
 	}
-	else if (r.difficulty == HARD)
+	else if (r.whatmeal == DINNER)
 	{
-		printf("HARD\n");
+		printf("DINNER\n");
 	}
 	
 	Displayingredent(r.ingredents);
@@ -75,17 +75,17 @@ void SaveRecipetodisk(FILE* fp, RECIPE r)
 {
 
 	fprintf(fp, "%s\n", r.Title);
-	if (r.difficulty == EASY)
+	if (r.whatmeal == BREAKFAST)
 	{
-		fprintf(fp, "EASY\n");
+		fprintf(fp, "BREAKFAST\n");
 	}
-	else if (r.difficulty == MEDIUM)
+	else if (r.whatmeal == LUNCH)
 	{
-		fprintf(fp, "MEDIUM\n");
+		fprintf(fp , "LUNCH\n");
 	}
-	else if (r.difficulty == HARD)
+	else if (r.whatmeal == DINNER)
 	{
-		fprintf(fp, "HARD\n");
+		fprintf(fp , "DINNER\n");
 	}
 
 	saveingredentstodisk(r.ingredents, fp);

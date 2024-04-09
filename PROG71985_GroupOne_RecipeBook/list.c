@@ -51,7 +51,7 @@ bool FindRecipe(PLISTNODE* list, char* recipetitle, RECIPE* found)
 
 	do
 	{
-	if(findrecipewithtitle(current->recipe, recipetitle))
+	if(findrecipewithtitle(&current->recipe, recipetitle))
 	{
 		*found = current->recipe;
 		return true;
@@ -121,13 +121,13 @@ bool loadRecipeFromdisk(PLISTNODE* r, char* filename)
 {
 	char newrecipebuffer[MAXSTRINGSIZE];
 	char recipetitlebuffer[MAXSTRINGSIZE];
-	char recipedifficultybuffer[MAXSTRINGSIZE];
+	char recipemealtypebuffer[MAXSTRINGSIZE];
 	int loopvariable = 0;
-	DIFFICULTY howhard;
+	MEALTYPE whatmeal = { 0 };
 	FILE* fp = fopen(filename, "r");
 	if (fp == NULL)
 	{
-		fprintf(stderr, "ERROR WRITING TO FILE\n");
+		fprintf(stderr, "ERROR READING FILE\n");
 		return false;
 	}	
 	else
@@ -137,7 +137,7 @@ bool loadRecipeFromdisk(PLISTNODE* r, char* filename)
 		if (strncmp(newrecipebuffer, "NEWRECIPE", 9)!= 0)
 		{
 			fprintf(stderr, "ERROR READING FILE");
-			exit(1);
+			return false;
 		}
 
 		while (loopvariable == 0)
@@ -149,24 +149,24 @@ bool loadRecipeFromdisk(PLISTNODE* r, char* filename)
 			{
 				return false;
 			}
-			fgets(recipedifficultybuffer, MAXSTRINGSIZE, fp);
-			recipedifficultybuffer[strcspn(recipedifficultybuffer, "\n")] = '\0';
-			if (strncmp(recipedifficultybuffer, "EASY", 4))
+			fgets(recipemealtypebuffer, MAXSTRINGSIZE, fp);
+			recipemealtypebuffer[strcspn(recipemealtypebuffer, "\n")] = '\0';
+			if (strncmp(recipemealtypebuffer, "BREAKFAST", 9) == 0)
 			{
-				howhard = EASY;
+				whatmeal = BREAKFAST;
 			}
-			else if (strncmp(recipedifficultybuffer, "HARD", 4))
+			else if (strncmp(recipemealtypebuffer, "LUNCH", 5) == 0)
 			{
-				howhard = HARD;
+				whatmeal = LUNCH;
 			}
-			else if (strncmp(recipedifficultybuffer, "MEDIUM", 6))
+			else if (strncmp(recipemealtypebuffer, "DINNER", 6) == 0)
 			{
-				howhard = MEDIUM;
+				whatmeal = DINNER;
 			}
 
 			bool ingredentstest = loadingredentsfromdisk(&i, fp);
 
-			RECIPE recipe = CreateRecipe(i, recipetitlebuffer, howhard);
+			RECIPE recipe = CreateRecipe(i, recipetitlebuffer, whatmeal);
 
 			Add(r, recipe);
 			

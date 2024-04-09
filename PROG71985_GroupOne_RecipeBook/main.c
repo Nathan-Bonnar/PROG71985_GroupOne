@@ -24,7 +24,6 @@ int main()
 	int menucondition = 0;
 	PLISTNODE menurecipelist = { 0 };
 	char testingstring[MAXSTRINGSIZE] = "Test";
-	RECIPE testfindrecipe;
 	loadRecipeFromdisk(&menurecipelist, Recipefilename);
 	
 	while (menucondition == 0)
