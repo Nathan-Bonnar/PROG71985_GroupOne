@@ -76,7 +76,7 @@ void Displayingredent(PINGRDENTLISTNODE ingredentlist)
 	PINGRDENTLISTNODE current = ingredentlist;
 	if (current == NULL)
 		return;
-	fprintf(stdout, "Ingredents\n");
+	fprintf(stdout, "Ingredents:\n");
 	do
 	{
 		printIngredent(current->ingredent);

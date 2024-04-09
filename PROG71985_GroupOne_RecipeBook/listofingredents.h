@@ -15,7 +15,7 @@ typedef struct listofingredentnode {
 
 void Addingredent(PINGRDENTLISTNODE* list, INGREDENTS ingredent);
 
-bool CompareIngredentlist(PINGRDENTLISTNODE list, PINGRDENTLISTNODE list2);
+bool CompareIngredentlist(PINGRDENTLISTNODE* list, PINGRDENTLISTNODE list2);
 
 void Removeingredent(PINGRDENTLISTNODE* list, INGREDENTS ingredent);
 

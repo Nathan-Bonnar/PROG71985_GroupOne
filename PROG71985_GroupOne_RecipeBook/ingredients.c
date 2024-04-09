@@ -53,9 +53,3 @@ bool saveingredenttodisk(INGREDENTS i,FILE* fp)
 	fprintf(fp, "%f\n", i.ingredentAmount);
 	return true;
 }
-
-//INGREDENTS LoadIngredentsFromdisk(FILE* fp)
-//{
-//	char namebuffer[MAXSTRINGSIZE] = { 0 };
-//	fgets(namebuffer, MAXSTRINGSIZE, fp);
-//}
