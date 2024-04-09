@@ -24,3 +24,5 @@ bool FindRecipe(PLISTNODE* list, char* recipetitle, RECIPE* found);
 
 
 bool loadRecipeFromdisk(PLISTNODE* r, char* filename);
+
+void RecipeRangeDisplayer(int starting, int ending, PLISTNODE recipelist);

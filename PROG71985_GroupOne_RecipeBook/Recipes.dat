@@ -1,7 +1,7 @@
 NEWRECIPE
-Testthree
-DINNER
-Testthree
+Testone
+BREAKFAST
+Testone
 kg
 5.000000
 NEWRECIPE
@@ -11,9 +11,9 @@ Testtwo
 kg
 5.000000
 NEWRECIPE
-Testone
-BREAKFAST
-Testone
+Testthree
+DINNER
+Testthree
 kg
 5.000000
 ENDOFFILE

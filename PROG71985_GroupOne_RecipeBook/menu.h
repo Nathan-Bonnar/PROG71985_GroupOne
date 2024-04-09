@@ -18,3 +18,5 @@ void DeleteArecipe(PLISTNODE* functionrecipelist);
 void DisplayARecipe(PLISTNODE recipelist);
 
 void searchforarecipe(PLISTNODE recipelist);
+
+void DisplayRangeOfRecipe(PLISTNODE recipelist);

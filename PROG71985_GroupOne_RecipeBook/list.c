@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include"list.h"
 #include"Recipe.h"
 //PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
@@ -198,4 +199,30 @@ bool saverecipestodisk(PLISTNODE r, char * filename)
 	}
 	fprintf(fp, "ENDOFFILE\n");
 	return true;
+}
+
+void RecipeRangeDisplayer(int starting, int ending, PLISTNODE recipelist) {
+
+	PLISTNODE current = recipelist;
+	RECIPE temprecipe = { 0 };
+	int RecipeNumber = 1; 
+	if (current == NULL)
+		return;
+
+	do {
+		if (starting > RecipeNumber || RecipeNumber > ending) {
+			current = current->next;
+		}
+		else {
+			temprecipe = current->recipe; 
+			PrintRecipe(temprecipe);
+			current = current->next;
+		}
+
+		RecipeNumber++;
+	} while (current != NULL);
+
+
+
+	return; 
 }

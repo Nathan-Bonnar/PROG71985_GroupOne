@@ -171,3 +171,31 @@ void searchforarecipe(PLISTNODE recipelist)
 	printf("FOUND!\n");
 	return;
 }
+
+//Display range of recipes 
+
+void DisplayRangeOfRecipe(PLISTNODE recipelist) {
+	PLISTNODE r = recipelist;
+	int starting = 0; 
+	int ending = 0;
+	bool rangeCheck = false;
+
+	while (rangeCheck == false) {
+		char starting_output[MAXSTRINGSIZE] = "What is the starting recipe number: ";
+		starting = int_Number_input(starting_output);
+
+		char ending_output[MAXSTRINGSIZE] = "What is the ending recipe number: ";
+		ending = int_Number_input(ending_output);
+
+		rangeCheck = true;
+
+		if (starting > ending) {
+			printf("Invalid Input, Please try again!\n");
+			rangeCheck = false;
+		}
+	}
+	//
+
+	RecipeRangeDisplayer(starting, ending, recipelist);
+	
+}

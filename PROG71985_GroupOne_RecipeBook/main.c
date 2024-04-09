@@ -47,7 +47,7 @@ int main()
 			DisplayARecipe(&menurecipelist);
 			break;
 		case 'e'://e.)Display a range of recipes
-
+			DisplayRangeOfRecipe(menurecipelist);
 			break;
 		case 'f'://f.)Display All appt recipes
 
