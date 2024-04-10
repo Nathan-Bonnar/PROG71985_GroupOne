@@ -195,7 +195,20 @@ void DisplayRangeOfRecipe(PLISTNODE recipelist) {
 			rangeCheck = false;
 		}
 	}
-	//
+
+	int amount_of_recipes = getcurrentcount(r);
+	
+
+	if (ending > amount_of_recipes)
+	{
+		fprintf(stderr, "requesting ending amount is larger then current amount of recipes\n");
+		return;
+	}
+	if(starting > amount_of_recipes || starting == 0)
+	{
+		fprintf(stderr, "starting value is greater then amount of recipes\n");
+		return;
+	}
 
 	RecipeRangeDisplayer(starting, ending, recipelist);
 	

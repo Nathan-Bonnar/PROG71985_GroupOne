@@ -228,6 +228,26 @@ void RecipeRangeDisplayer(int starting, int ending, PLISTNODE recipelist) {
 	return; 
 }
 
+int getcurrentcount(PLISTNODE recipelist)
+{
+	PLISTNODE current = recipelist;
+	int amount_of_recipes = 0;
+	if (current == NULL)
+	{
+		return;
+	}
+
+	do
+	{
+		amount_of_recipes++;
+		current = current->next;
+
+	} while (current!=NULL);
+
+	return amount_of_recipes;
+}
+
+
 void RandomRecipeDisplayer(PLISTNODE recipelist) {
 
 	PLISTNODE current = recipelist;

@@ -28,3 +28,5 @@ bool loadRecipeFromdisk(PLISTNODE* r, char* filename);
 void RecipeRangeDisplayer(int starting, int ending, PLISTNODE recipelist);
 
 void RandomRecipeDisplayer(PLISTNODE recipelist);
+
+int getcurrentcount(PLISTNODE recipelist);
