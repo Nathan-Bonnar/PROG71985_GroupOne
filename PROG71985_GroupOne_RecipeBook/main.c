@@ -41,7 +41,7 @@ int main()
 			DeleteArecipe(&menurecipelist);
 			break;
 		case 'c'://c.)Update an exitsing Recipe
-
+			updatearecipe(&menurecipelist);
 			break;
 		case 'd'://d.)Display a single recipe
 			DisplayARecipe(&menurecipelist);

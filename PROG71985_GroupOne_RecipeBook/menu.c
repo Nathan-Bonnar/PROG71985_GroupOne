@@ -200,3 +200,30 @@ void DisplayRangeOfRecipe(PLISTNODE recipelist) {
 	RecipeRangeDisplayer(starting, ending, recipelist);
 	
 }
+
+
+void updatearecipe(PLISTNODE* recipelist)
+{
+	RECIPE recipetoupdate = { 0 };
+	char updateoutput[MAXSTRINGSIZE] = "Please enter the title of the recipe you would like to update(Case matters): ";
+	char updateinput[MAXSTRINGSIZE];
+	StringInput(updateoutput, updateinput);
+	bool findrecipecheck = FindRecipe(recipelist, updateinput, &recipetoupdate);
+	if (findrecipecheck == false)
+	{
+		fprintf(stderr, "RECIPE NOT FOUND\n");
+		return;
+	}
+	bool removecheck = Remove(recipelist, recipetoupdate);
+	if (removecheck == false)
+	{
+		fprintf(stderr, "PROBLEM UPDATING RECIPE\n");
+		return;
+	}
+	
+	printf("Updating values, please enter the new values of the recipe\n");
+	PINGRDENTLISTNODE updatedingredents = Createanewingredent();
+	*recipelist = Createanewrecipe(updatedingredents, *recipelist);
+
+	return;
+}

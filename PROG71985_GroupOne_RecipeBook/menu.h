@@ -20,3 +20,5 @@ void DisplayARecipe(PLISTNODE recipelist);
 void searchforarecipe(PLISTNODE recipelist);
 
 void DisplayRangeOfRecipe(PLISTNODE recipelist);
+
+void updatearecipe(PLISTNODE* recipelist);
