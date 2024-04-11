@@ -181,7 +181,9 @@ void DeleteArecipe(PLISTNODE* functionrecipelist)
 	{
 		fprintf(stderr, "ERROR FREEING MEMORY\n");
 		exit(1);
-	}
+	} 
+	printf("Recipe Successful Deleted\n\n");
+	return;
 }
 
 void DisplayARecipe(PLISTNODE recipelist)
