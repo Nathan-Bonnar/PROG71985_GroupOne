@@ -13,7 +13,7 @@ STEP Createstep(char* steptitle, char* instruction)
 
 void printstep(STEP s)
 {
-	fprintf(stdout, "%s , %s", s.steptitle, s.instruction);
+	fprintf(stdout, "%s , %s\n", s.steptitle, s.instruction);
 	return;
 }
 

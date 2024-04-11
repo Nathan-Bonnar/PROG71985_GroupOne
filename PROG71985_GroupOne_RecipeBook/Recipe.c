@@ -4,24 +4,25 @@
 #include"Recipe.h"
 #pragma warning(disable : 4996)
 #define MAXSTRINGSIZE 100
-RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char * userstring, MEALTYPE mtype)
+RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, struct PSTEPSLISTNODE* steps, char* userstring, MEALTYPE mealtype)
 {
 	RECIPE recipe = { 0 };
 	recipe.ingredents = ingredentslist;
+	recipe.steps = steps;
 	strncpy(recipe.Title, userstring, MAXSTRINGSIZE);
-	recipe.whatmeal = mtype;
+	recipe.whatmeal = mealtype;
 	return recipe;
 }
 
 RECIPE CopyRecipe(RECIPE OriginalRecipe)
 {
-	RECIPE recipe = CreateRecipe(OriginalRecipe.ingredents, OriginalRecipe.Title, OriginalRecipe.whatmeal);
+	RECIPE recipe = CreateRecipe(OriginalRecipe.ingredents, OriginalRecipe.steps,  OriginalRecipe.Title, OriginalRecipe.whatmeal);
 	return recipe;
 }
 
 bool CompareRecipe(RECIPE lhs, RECIPE rhs)
 {
-	if (!(CompareIngredentlist(&lhs.ingredents, rhs.ingredents)))
+	if (!(CompareIngredentlist(&lhs.ingredents, rhs.ingredents)) && (!CompareSteplist(&lhs.steps, rhs.steps)))
 	{
 		return false;
 	}
@@ -50,11 +51,13 @@ void PrintRecipe(RECIPE r)
 	}
 	
 	Displayingredent(r.ingredents);
+	Displaystep(r.steps);
 }
 
 void DisposeRecipe(RECIPE r)
 {
 	Disposeingredent(&r.ingredents);
+	Disposestep(&r.steps);
 }
 
 
@@ -89,5 +92,6 @@ void SaveRecipetodisk(FILE* fp, RECIPE r)
 	}
 
 	saveingredentstodisk(r.ingredents, fp);
-
+	fprintf(fp, "ENDOFINGREDENTS\n");
+	savestepstodisk(r.steps, fp);
 }

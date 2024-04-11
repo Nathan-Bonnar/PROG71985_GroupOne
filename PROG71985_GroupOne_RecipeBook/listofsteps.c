@@ -16,7 +16,7 @@ void addstep(PLISTOFSTEPSNODE* list, STEP step)
 	}
 	else
 	{
-		newNode->step = Copystep(newNode->step);
+		newNode->step = Copystep(step);
 		newNode->next = *list;
 		*list = newNode;
 	}
@@ -75,7 +75,7 @@ void Displaystep(PLISTOFSTEPSNODE list)
 	PLISTOFSTEPSNODE current = list;
 	if (current == NULL)
 		return;
-	fprintf(stdout, "Ingredents:\n");
+	fprintf(stdout, "Steps:\n");
 	do
 	{
 		printstep(current->step);
@@ -108,29 +108,27 @@ void savestepstodisk(PLISTOFSTEPSNODE list, FILE* fp)
 
 bool loadstepsfromdisk(PLISTOFSTEPSNODE* list, FILE* fp)
 {
-	char Recipetitlebuffer[MAXSTRINGSIZE];
-	char Recipeunitbuffer[MAXSTRINGSIZE];
-	float Recipeamountbuffer;
+	char steptitlebuffer[MAXSTRINGSIZE];
+	char stepinstructionbuffer[MAXSTRINGSIZE];
 	int ingredentsloop = 0;
 	while (ingredentsloop == 0)
 	{
-		fgets(Recipetitlebuffer, MAXSTRINGSIZE, fp);
-		Recipetitlebuffer[strcspn(Recipetitlebuffer, "\n")] = '\0';
-		if (strncmp(Recipetitlebuffer, "NEWRECIPE", 9) == 0)
+		fgets(steptitlebuffer, MAXSTRINGSIZE, fp);
+		steptitlebuffer[strcspn(steptitlebuffer, "\n")] = '\0';
+		if (strncmp(steptitlebuffer, "NEWRECIPE", 9) == 0)
 		{
 			return true;
 		}
-		else if (strncmp(Recipetitlebuffer, "ENDOFFILE", 9) == 0)
+		else if (strncmp(steptitlebuffer, "ENDOFFILE", 9) == 0)
 		{
 			return false;
 		}
-		fgets(Recipeunitbuffer, MAXSTRINGSIZE, fp);
-		Recipeunitbuffer[strcspn(Recipeunitbuffer, "\n")] = '\0';
-		int number_check = fscanf(fp, "%f\n", &Recipeamountbuffer);
+		fgets(stepinstructionbuffer, MAXSTRINGSIZE, fp);
+		stepinstructionbuffer[strcspn(stepinstructionbuffer, "\n")] = '\0';
 		
-		INGREDENTS ingredent =  CreateIngredent(Recipetitlebuffer, Recipeamountbuffer, Recipeunitbuffer);
+		STEP step = Createstep(steptitlebuffer, stepinstructionbuffer);
 		
-		Addingredent(i, ingredent);
+		addstep(list, step);
 
 	}
 }

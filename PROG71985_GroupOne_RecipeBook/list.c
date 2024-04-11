@@ -145,6 +145,7 @@ bool loadRecipeFromdisk(PLISTNODE* r, char* filename)
 		while (loopvariable == 0)
 		{
 			PINGRDENTLISTNODE i = { 0 };
+			PLISTOFSTEPSNODE s = { 0 };
 			fgets(recipetitlebuffer, MAXSTRINGSIZE, fp);
 			recipetitlebuffer[strcspn(recipetitlebuffer, "\n")] = '\0';
 			if (strncmp(recipetitlebuffer,"ENDOFFILE",9) == 0)
@@ -168,11 +169,13 @@ bool loadRecipeFromdisk(PLISTNODE* r, char* filename)
 
 			bool ingredentstest = loadingredentsfromdisk(&i, fp);
 
-			RECIPE recipe = CreateRecipe(i, recipetitlebuffer, whatmeal);
-
+			bool stepstest = loadstepsfromdisk(&s, fp);
+			
+			RECIPE recipe = CreateRecipe(i, s ,  recipetitlebuffer, whatmeal);
+			
 			Add(r, recipe);
 			
-			if (ingredentstest == false)
+			if (stepstest == false)
 			{
 				return true;
 			}

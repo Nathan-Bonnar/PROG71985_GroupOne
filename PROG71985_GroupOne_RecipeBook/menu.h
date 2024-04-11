@@ -3,6 +3,8 @@
 //Make a recipe Book
 // menu interface
 #include"ingredients.h"
+#include"Steps.h"
+#include"listofsteps.h"
 #include"list.h"
 #include"listofingredents.h"
 #include"Recipe.h"
@@ -11,7 +13,9 @@ char PrintOptions();
 
 PINGRDENTLISTNODE Createanewingredent();
 
-PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE functionrecipelist);
+PLISTOFSTEPSNODE Createanewstep();
+
+PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTOFSTEPSNODE steps, PLISTNODE functionrecipelist);
 
 void DeleteArecipe(PLISTNODE* functionrecipelist);
 

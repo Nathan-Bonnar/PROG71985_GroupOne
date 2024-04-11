@@ -12,6 +12,8 @@
 //10. load accumulated data from disk
 #include<stdio.h>
 #include<stdlib.h>
+#include"Steps.h"
+#include"listofsteps.h"
 #include"Recipe.h"
 #include"ingredients.h"
 #include"listofingredents.h"
@@ -29,12 +31,14 @@ int main()
 	while (menucondition == 0)
 	{
 		PINGRDENTLISTNODE menuingredentlist;
+		PLISTOFSTEPSNODE menulistofsteps;
 		char menu_choice = PrintOptions();
 		switch (menu_choice)
 		{
 		case 'a': //a.)Add a new Recipe
 			menuingredentlist =  Createanewingredent();
-			menurecipelist = Createanewrecipe(menuingredentlist, menurecipelist);
+			menulistofsteps = Createanewstep();
+			menurecipelist = Createanewrecipe(menuingredentlist, menulistofsteps,  menurecipelist);
 			Display(menurecipelist);
 			break;
 		case 'b'://b.)Delete an exitsing Recipe

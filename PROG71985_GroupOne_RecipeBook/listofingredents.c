@@ -118,13 +118,9 @@ bool loadingredentsfromdisk(PINGRDENTLISTNODE * i,  FILE* fp)
 	{
 		fgets(Recipetitlebuffer, MAXSTRINGSIZE, fp);
 		Recipetitlebuffer[strcspn(Recipetitlebuffer, "\n")] = '\0';
-		if (strncmp(Recipetitlebuffer, "NEWRECIPE", 9) == 0)
+		if (strncmp(Recipetitlebuffer, "ENDOFINGREDENTS", 15) == 0)
 		{
 			return true;
-		}
-		else if (strncmp(Recipetitlebuffer, "ENDOFFILE", 9) == 0)
-		{
-			return false;
 		}
 		fgets(Recipeunitbuffer, MAXSTRINGSIZE, fp);
 		Recipeunitbuffer[strcspn(Recipeunitbuffer, "\n")] = '\0';

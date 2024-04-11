@@ -1,5 +1,7 @@
 #pragma once
 #include"listofingredents.h"
+#include"Steps.h"
+#include"listofsteps.h"
 #include"ingredients.h"
 #define MAXAMOUNTOFINGREDENTS 20
 //PROG71985 W24 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
@@ -10,14 +12,14 @@ typedef enum mealtype{BREAKFAST, LUNCH, DINNER}MEALTYPE;
 typedef struct recipe {
 	
 	struct PINGRDENTLISTNODE* ingredents;
-	//STEPS steps;
+	struct PSTEPSLISTNODE* steps;
 	char Title[MAXSTRINGSIZE];
 	MEALTYPE whatmeal;
 
 }RECIPE, *PRECIPE;
 
 
-RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, char* userstring, MEALTYPE mealtype);
+RECIPE CreateRecipe(struct PINGRDENTLISTNODE* ingredentslist, struct PSTEPSLISTNODE* steps,  char* userstring, MEALTYPE mealtype);
 
 RECIPE CopyRecipe(RECIPE OriginalRecipe);
 

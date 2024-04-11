@@ -22,7 +22,7 @@ char PrintOptions()
 	printf("c.)Update an exitsing Recipe\n");
 	printf("d.)Display a single recipe\n");
 	printf("e.)Display a range of recipes\n");
-	printf("f.)Display All appt recipes\n");
+	printf("f.)Display All recipes\n");
 	printf("g.)Search for a recipe\n");
 	printf("h.)Search for a random recipe\n");
 	printf("i.)Exit the program\n");
@@ -82,8 +82,55 @@ PINGRDENTLISTNODE Createanewingredent()
 	
 	return functioningredentslist;
 }
+PLISTOFSTEPSNODE Createanewstep()
+{
+	int steps_check = 0;
+	PLISTOFSTEPSNODE functionstepslist = { 0 };
+	char output_name[MAXSIZE] = "Please enter the steps title: ";
+	char output_instruction[MAXSIZE] = "What do you do in that step: ";
+	char output_end[MAXSIZE] = "would you like to add a new Step ( Y | N ): ";
+	char buffer_title[MAXSIZE];
+	char buffer_instruction[MAXSIZE];
+	STEP tempstep;
+	char menu_input;
+	do
+	{
+		int continue_check = 0;
+		StringInput(output_name, buffer_title);
+		StringInput(output_instruction, buffer_instruction);
+		tempstep = Createstep(buffer_title, buffer_instruction);
+		addstep(&functionstepslist, tempstep);
+		do
+		{
+			menu_input = Char_input(output_end);
+			if (menu_input == 'n' || menu_input == 'N')
+			{
+				steps_check = 1;
+				continue_check = 1;
+			}
+			else if (menu_input == 'y' || menu_input == 'Y')
+			{
+				continue_check = 1;
+				continue;
+			}
+			else
+			{
+				printf("please enter a valid input\n");
+			}
+		} while (continue_check == 0);
+	} while (steps_check == 0);
 
-PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE functionrecipelist)
+	//temp_recipe = CreateRecipe(&ingredentslist);
+	//Add(&recipelist, temp_recipe);
+	//INGREDENTS ingredent = CreateIngredent("tumric", 5 , "kg");
+	//Addingredent(&functioningredentslist, ingredent);
+	//RECIPE recipe = CreateRecipe(&functioningredentslist);
+	//Add(&funtcionrecipelist, recipe);
+
+	return functionstepslist;
+}
+
+PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTOFSTEPSNODE steps,  PLISTNODE functionrecipelist)
 {
 	RECIPE temp_recipe;
 	char title_output[MAXSIZE] = "What would you like the title of the recipe to be: ";
@@ -107,7 +154,7 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTNODE f
 	} while (mealtype_loop_check == 0);
 	mealtype_choice = mealtype_choice -1;
 	StringInput(title_output, title_input);
-	temp_recipe = CreateRecipe(functioningredentslist, title_input,mealtype_choice);
+	temp_recipe = CreateRecipe(functioningredentslist, steps,  title_input,mealtype_choice);
 	Add(&functionrecipelist, temp_recipe);
 	return functionrecipelist;
 }
@@ -237,7 +284,8 @@ void updatearecipe(PLISTNODE* recipelist)
 	
 	printf("Updating values, please enter the new values of the recipe\n");
 	PINGRDENTLISTNODE updatedingredents = Createanewingredent();
-	*recipelist = Createanewrecipe(updatedingredents, *recipelist);
+	PLISTOFSTEPSNODE updatesteps = Createanewstep();
+	*recipelist = Createanewrecipe(updatedingredents, updatesteps,  *recipelist);
 
 	return;
 }
