@@ -176,7 +176,7 @@ void DeleteArecipe(PLISTNODE* functionrecipelist)
 		return;
 	}
 	
-	bool removecheck = Remove(&recipelist, recipetodelete);
+	bool removecheck = Remove(functionrecipelist, recipetodelete);
 	if (!(removecheck))
 	{
 		fprintf(stderr, "ERROR FREEING MEMORY\n");
