@@ -88,7 +88,7 @@ PLISTOFSTEPSNODE Createanewstep()
 	PLISTOFSTEPSNODE functionstepslist = { 0 };
 	char output_name[MAXSIZE] = "Please enter the steps title: ";
 	char output_instruction[MAXSIZE] = "What do you do in that step: ";
-	char output_end[MAXSIZE] = "would you like to add a new Step ( Y | N ): ";
+	char output_end[MAXSIZE] = "Would you like to add a new Step ( Y | N ): ";
 	char buffer_title[MAXSIZE];
 	char buffer_instruction[MAXSIZE];
 	STEP tempstep;
@@ -115,7 +115,7 @@ PLISTOFSTEPSNODE Createanewstep()
 			}
 			else
 			{
-				printf("please enter a valid input\n");
+				printf("Please enter a valid input\n");
 			}
 		} while (continue_check == 0);
 	} while (steps_check == 0);
@@ -136,7 +136,7 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTOFSTEP
 	char title_output[MAXSIZE] = "What would you like the title of the recipe to be: ";
 	char title_input[MAXSIZE];
 	int mealtype_loop_check = 0;
-	char mealtype_output[MAXSIZE] = "Is the meal for breakfast(1), Lunch(2), or dinner(3): ";
+	char mealtype_output[MAXSIZE] = "Is the meal for breakfast(1): Lunch(2): or dinner(3): ";
 	int mealtype_choice;
 	do
 	{
@@ -145,7 +145,7 @@ PLISTNODE Createanewrecipe(PINGRDENTLISTNODE functioningredentslist, PLISTOFSTEP
 		
 		if (mealtype_choice > 3 || mealtype_choice <= 0)
 		{
-			printf("please enter a valid choice\n");
+			printf("Please enter a valid choice\n");
 		}
 		else
 		{
@@ -172,7 +172,7 @@ void DeleteArecipe(PLISTNODE* functionrecipelist)
 	bool findrecipe_check = FindRecipe(functionrecipelist, delete_choice, &recipetodelete);
 	if (!(findrecipe_check))
 	{
-		fprintf(stderr, "couldnt find recipe\n");
+		fprintf(stderr, "Couldnt find recipe\n");
 		return;
 	}
 	
@@ -194,7 +194,7 @@ void DisplayARecipe(PLISTNODE recipelist)
 	bool findrecipe_check = FindRecipe(r, displaychoice, &recipetodisplay);
 	if (!(findrecipe_check))
 	{
-		fprintf(stderr, "couldnt find recipe\n");
+		fprintf(stderr, "Couldnt find recipe\n");
 		return;
 	}
 	
@@ -213,7 +213,7 @@ void searchforarecipe(PLISTNODE recipelist)
 	bool findrecipe_check = FindRecipe(r, displaychoice, &recipetodisplay);
 	if (!(findrecipe_check))
 	{
-		fprintf(stderr, "couldnt find recipe\n");
+		fprintf(stderr, "Couldnt find recipe\n");
 		return;
 	}
 
@@ -249,12 +249,12 @@ void DisplayRangeOfRecipe(PLISTNODE recipelist) {
 
 	if (ending > amount_of_recipes)
 	{
-		fprintf(stderr, "requesting ending amount is larger then current amount of recipes\n");
+		fprintf(stderr, "Requesting ending amount is larger then current amount of recipes\n");
 		return;
 	}
 	if(starting > amount_of_recipes || starting == 0)
 	{
-		fprintf(stderr, "starting value is greater then amount of recipes\n");
+		fprintf(stderr, "Starting value is greater then amount of recipes\n");
 		return;
 	}
 
