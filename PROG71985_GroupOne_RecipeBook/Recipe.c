@@ -35,6 +35,7 @@ bool CompareRecipe(RECIPE lhs, RECIPE rhs)
 
 void PrintRecipe(RECIPE r)
 {
+	printf("\n");
 	printf("Title:%s\n", r.Title);
 	printf("MEAL TYPE:");
 	if (r.whatmeal == BREAKFAST)
@@ -52,6 +53,7 @@ void PrintRecipe(RECIPE r)
 	
 	Displayingredent(r.ingredents);
 	Displaystep(r.steps);
+	printf("\n");
 }
 
 void DisposeRecipe(RECIPE r)
