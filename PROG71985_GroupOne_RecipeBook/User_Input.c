@@ -15,12 +15,12 @@ float float_Number_input(char* outputstring)
 
 		if (number_check != 1)
 		{
-			printf("please enter a vaild input\n");
+			printf("Please enter a vaild input\n");
 			int checker = getchar() != '\n';
 		}
 		else if (number_input > MAXSIZE)
 		{
-			printf("please enter a valid input");
+			printf("Please enter a valid input");
 			int checker = getchar() != '\n';
 		}
 		else
@@ -43,12 +43,12 @@ int int_Number_input(char* outputstring)
 
 	if (number_check != 1)
 	{
-		printf("please enter a vaild input\n");
+		printf("Please enter a vaild input\n");
 		exit(EXIT_FAILURE);
 	}
 	if (number_input > MAXSIZE)
 	{
-		printf("please enter a valid input");
+		printf("Please enter a valid input");
 		exit(EXIT_FAILURE);
 	}
 	int checker = getchar() != '\n';
@@ -73,17 +73,17 @@ char Char_input(char* outputstring)
 	}
 	else if (char_input > MAXSIZE)
 	{
-		printf("please enter a valid input");
+		printf("Please enter a valid input");
 		exit(EXIT_FAILURE);
 	}
 	else if (number_check != 1)
 	{
-		printf("please enter a valid input");
+		printf("Please enter a valid input");
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
-		printf("please enter a valid input");
+		printf("Please enter a valid input");
 		exit(EXIT_FAILURE);
 	}
 

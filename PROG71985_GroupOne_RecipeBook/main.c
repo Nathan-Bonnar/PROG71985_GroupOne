@@ -68,7 +68,7 @@ int main()
 			RandomRecipeDisplayer(menurecipelist);
 			break;
 		default:
-			printf("please enter a valid choice\n\n");
+			printf("Please enter a valid choice\n\n");
 			break;
 		}
 	}
