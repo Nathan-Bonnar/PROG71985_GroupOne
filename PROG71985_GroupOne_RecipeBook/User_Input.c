@@ -18,11 +18,6 @@ float float_Number_input(char* outputstring)
 			printf("Please enter a vaild input\n");
 			int checker = getchar() != '\n';
 		}
-		else if (number_input > MAXSIZE)
-		{
-			printf("Please enter a valid input");
-			int checker = getchar() != '\n';
-		}
 		else
 		{
 			numbervalid_check++;

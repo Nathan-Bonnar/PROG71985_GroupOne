@@ -1,12 +1,16 @@
 NEWRECIPE
-Testtwo
-BREAKFAST
-Testtwo
+POT
+LUNCH
+Testone
 kg
 5.000000
 ENDOFINGREDENTS
-Testtwo
-HI
+Step Three
+When finsihed put ingredents into pot
+Step Two
+Cook ingredents
+Step One
+Put ingredents into pan
 NEWRECIPE
 NATHANUPDATE
 LUNCH
@@ -16,4 +20,13 @@ kg
 ENDOFINGREDENTS
 UPDATE
 UPDATE
+NEWRECIPE
+Testtwo
+BREAKFAST
+Testtwo
+kg
+5.000000
+ENDOFINGREDENTS
+Testtwo
+HI
 ENDOFFILE
