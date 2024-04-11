@@ -39,7 +39,7 @@ int main()
 			menuingredentlist =  Createanewingredent();
 			menulistofsteps = Createanewstep();
 			menurecipelist = Createanewrecipe(menuingredentlist, menulistofsteps,  menurecipelist);
-			Display(menurecipelist);
+			DisplayOnce(menurecipelist);
 			break;
 		case 'b'://b.)Delete an exitsing Recipe
 			DeleteArecipe(&menurecipelist);

@@ -14,7 +14,9 @@ void Add(PLISTNODE* list, RECIPE r);
 
 bool Remove(PLISTNODE* list, RECIPE r);
 
-bool saverecipestodisk(PLISTNODE r, char* filename);
+bool saverecipestodisk(PLISTNODE r, char* filename); 
+
+void DisplayOnce(PLISTNODE list);
 
 void Display(PLISTNODE list);
 

@@ -93,7 +93,15 @@ bool Remove(PLISTNODE* list, RECIPE r)
 		return true;
 	}
 }
-
+void DisplayOnce(PLISTNODE list)
+{ 
+	PLISTNODE current = list;
+	if (current == NULL)
+		return; 
+	else
+	PrintRecipe(current->recipe); 
+	return;
+}
 //displays a list of recipes 
 void Display(PLISTNODE list)
 {
