@@ -1,3 +1,7 @@
+//PROG71985 W24 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
+//Make a recipe Book
+//User Input Interface
+//Grabs different types of user input 
 #define _CRT_SECURE_NO_WARNINGS 
 #include"User_Input.h"
 float float_Number_input(char* outputstring)

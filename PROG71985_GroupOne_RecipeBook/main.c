@@ -1,4 +1,4 @@
-//PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
+//PROG71985 W24 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book with the following features
 //1. add a new recipe 
 //2. delete an existing recipe 
@@ -55,12 +55,12 @@ int main()
 		case 'g'://g.)Search For a recipe
 			searchforarecipe(&menurecipelist);
 			break;
-		case 'h'://0.)To exit 
+		case 'i'://0.)To exit 
 			saverecipestodisk(menurecipelist, Recipefilename);
 			Dispose(&menurecipelist);
 			menucondition = 1;
 			break;
-		case 'i':
+		case 'h':
 			RandomRecipeDisplayer(menurecipelist);
 			break;
 		default:

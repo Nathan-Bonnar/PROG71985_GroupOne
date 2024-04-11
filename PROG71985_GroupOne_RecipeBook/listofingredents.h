@@ -3,7 +3,7 @@
 #include "Recipe.h"
 #include"ingredients.h"
 #include<stdlib.h>
-//PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
+//PROG71985 W24 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book
 // list interface
 typedef struct listofingredentnode {

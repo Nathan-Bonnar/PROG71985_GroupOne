@@ -1,4 +1,4 @@
-//PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
+//PROG71985 W24 Nathan Bonnar - Carter Blackie - Nicholas Rojas  
 //Make a recipe Book
 // menu implimentation
 //1. add a new recipe 
@@ -11,6 +11,7 @@
 //8. friendly / easy to use UI(or menu system)
 //9. save accumulated data to disk
 //10. load accumulated data from disk
+//11. random recipe display
 #include"menu.h"
 char PrintOptions()
 {
@@ -22,9 +23,9 @@ char PrintOptions()
 	printf("d.)Display a single recipe\n");
 	printf("e.)Display a range of recipes\n");
 	printf("f.)Display All appt recipes\n");
-	printf("g.)Search For a recipe\n");
-	printf("i.)Search For a random recipe\n");
-	printf("h.)Exit the program\n");
+	printf("g.)Search for a recipe\n");
+	printf("h.)Search for a random recipe\n");
+	printf("i.)Exit the program\n");
 	
 	char charanswer = Char_input(output);
 	

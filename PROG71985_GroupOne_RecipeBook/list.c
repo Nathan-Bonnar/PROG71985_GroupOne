@@ -2,7 +2,7 @@
 #include"list.h"
 #include"Recipe.h"
 #include "stdlib.h"
-//PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
+//PROG71985 W24 Nathan Bonnar - Carter Blackie - Nicholas Rojas  
 //Make a recipe Book
 // list Implimentation
 //
@@ -210,7 +210,7 @@ void RecipeRangeDisplayer(int starting, int ending, PLISTNODE recipelist) {
 	if (current == NULL)
 		return;
 
-	do {
+	do { // A do while loop pinting the numbers on a given range. 
 		if (starting > RecipeNumber || RecipeNumber > ending) {
 			current = current->next;
 		}
@@ -251,19 +251,19 @@ int getcurrentcount(PLISTNODE recipelist)
 void RandomRecipeDisplayer(PLISTNODE recipelist) {
 
 	PLISTNODE current = recipelist;
-	int totalRecipes = getcurrentcount(recipelist);
+	int totalRecipes = getcurrentcount(recipelist); // Sets the max number that the random number can generate using the count of list.
 	if (totalRecipes == 0) {
 		printf("No recipes available.\n");
 		return;
 	}
 	
-	int randomNumber = rand() % totalRecipes;
+	int randomNumber = rand() % totalRecipes; //Generates the random number to use
 	for (int i = 0; i < randomNumber; i++) {
 		current = current->next;
 	}
 
 	RECIPE temprecipe = current->recipe;
-	PrintRecipe(temprecipe);
+	PrintRecipe(temprecipe); // Outputs the random recipe. 
 
 	return;
 }

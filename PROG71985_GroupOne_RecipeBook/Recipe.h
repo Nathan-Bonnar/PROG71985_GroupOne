@@ -2,7 +2,7 @@
 #include"listofingredents.h"
 #include"ingredients.h"
 #define MAXAMOUNTOFINGREDENTS 20
-//PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
+//PROG71985 W24 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book
 //Recipe Interface
 // //Change difficulty to meal type

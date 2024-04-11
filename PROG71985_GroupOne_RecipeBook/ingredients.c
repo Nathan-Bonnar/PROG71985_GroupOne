@@ -1,5 +1,5 @@
 #include"ingredients.h"
-//PROG71985 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
+//PROG71985 W24 Nathan Bonnar - Carter Blackie - Nicholas Rojas 
 //Make a recipe Book
 //Recipe Interface
 INGREDENTS CreateIngredent(char* ingredentNameInput, float ingredentAmountInput, char* ingredentUnitInput)
