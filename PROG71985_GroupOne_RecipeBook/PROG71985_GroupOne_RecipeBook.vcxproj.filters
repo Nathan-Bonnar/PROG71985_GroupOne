@@ -36,6 +36,12 @@
     <ClCompile Include="User_Input.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Steps.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="listofsteps.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Recipe.h">
@@ -54,6 +60,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="User_Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Steps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="listofsteps.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
