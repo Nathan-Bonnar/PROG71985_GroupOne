@@ -251,18 +251,19 @@ int getcurrentcount(PLISTNODE recipelist)
 void RandomRecipeDisplayer(PLISTNODE recipelist) {
 
 	PLISTNODE current = recipelist;
-	RECIPE temprecipe = { 0 };
-	int RecipeNumber = rand();
-	if (current == NULL)
+	int totalRecipes = getcurrentcount(recipelist);
+	if (totalRecipes == 0) {
+		pintf("No recipes available.\n");
 		return;
-
-	do {
-		temprecipe = current->recipe;
-		PrintRecipe(temprecipe);
+	}
+	
+	int randomNumber = rand() % totalRecipes;
+	for (int i = 0; i < randomNumber; i++) {
 		current = current->next;
-	} while (current != NULL);
+	}
 
-
+	RECIPE temprecipe = current->recipe;
+	PrintRecipe(temprecipe);
 
 	return;
 }
