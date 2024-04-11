@@ -253,7 +253,7 @@ void RandomRecipeDisplayer(PLISTNODE recipelist) {
 	PLISTNODE current = recipelist;
 	int totalRecipes = getcurrentcount(recipelist);
 	if (totalRecipes == 0) {
-		pintf("No recipes available.\n");
+		printf("No recipes available.\n");
 		return;
 	}
 	
