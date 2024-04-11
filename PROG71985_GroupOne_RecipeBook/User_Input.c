@@ -62,34 +62,21 @@ char Char_input(char* outputstring)
 {
 	char char_input;
 	printf("%s", outputstring);
-	
-	int number_check = scanf("%c", &char_input);
-	
-	int checker = getchar() != '\n';
 
-	if ((char_input >= 'a' && char_input <= 'z') || (char_input >= 'A' && char_input <= 'Z') || char_input == '\n')
-	{
-	
-	}
-	else if (char_input > MAXSIZE)
-	{
-		printf("Please enter a valid input");
-		exit(EXIT_FAILURE);
-	}
-	else if (number_check != 1)
-	{
-		printf("Please enter a valid input");
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		printf("Please enter a valid input");
-		exit(EXIT_FAILURE);
-	}
+	scanf(" %c", &char_input);
+	while (getchar() != '\n'); // Clear the input buffer
 
+	// Check if the input is a letter
+	if ((char_input >= 'a' && char_input <= 'z') || (char_input >= 'A' && char_input <= 'Z')) {
+
+	}
+	else {
+		printf("Please enter a valid input\n");
+		exit(EXIT_FAILURE);
+	}
 	return char_input;
-
 }
+
 
 
 
