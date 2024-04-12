@@ -1,25 +1,19 @@
 NEWRECIPE
-POT
-LUNCH
-Testone
+Nathan Griddy
+DINNER
+Hat
 kg
-5.000000
-ENDOFINGREDENTS
-Step Three
-When finsihed put ingredents into pot
-Step Two
-Cook ingredents
-Step One
-Put ingredents into pan
-NEWRECIPE
-NATHANUPDATE
-LUNCH
-UPDATEONE
+2.000000
+Nathan
 kg
-5.000000
+86.000000
 ENDOFINGREDENTS
-UPDATE
-UPDATE
+Step three
+Nathan hits the griddy 
+Step two 
+Put hat on nathan 
+Step one
+Nathan stands 
 NEWRECIPE
 Testtwo
 BREAKFAST
@@ -29,4 +23,17 @@ kg
 ENDOFINGREDENTS
 Testtwo
 HI
+NEWRECIPE
+POT
+LUNCH
+Testone
+kg
+5.000000
+ENDOFINGREDENTS
+Step One
+Put ingredents into pan
+Step Two
+Cook ingredents
+Step Three
+When finsihed put ingredents into pot
 ENDOFFILE

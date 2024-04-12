@@ -59,7 +59,7 @@ bool CompareSteplist(PLISTOFSTEPSNODE* list, PLISTOFSTEPSNODE* list2)
 	}
 	do
 	{
-		if (compareIngredent(current->step, current2->step))
+		if (comparestep(current->step, current2->step))
 		{
 			return true;
 		}

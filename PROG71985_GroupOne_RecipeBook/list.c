@@ -245,7 +245,7 @@ int getcurrentcount(PLISTNODE recipelist)
 	int amount_of_recipes = 0;
 	if (current == NULL)
 	{
-		return;
+		return 0;
 	}
 
 	do
