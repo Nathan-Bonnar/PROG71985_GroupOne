@@ -85,20 +85,6 @@ bool StringInput(char* output_string, char* input_string)
 	
 	buffer[strcspn(buffer, "\n")] = '\0';
 	
-	int lengthofstring = (int)strlen(buffer);
-
-	for (int loop = 0; loop< lengthofstring; loop++)
-	{
-		if (isalpha(buffer[loop]) == 0)
-		{
-			if (buffer[loop] == ' ')
-			{
-				continue;
-			}
-			return false;
-		}
-	}
-	
 	strncpy(input_string, buffer, MAXSIZE);
 	return true;
 }
